@@ -3,8 +3,8 @@ import './App.css'
 
 function App() {
   return (
-    <div className="app">
-      <h1>app</h1>
+    <div className="app flex relative">
+      <h1 className="capitalize text-3xl text-black">app</h1>
     </div>
   )
 }
