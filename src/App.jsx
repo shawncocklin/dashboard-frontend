@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import { ColorModeContext, useMode } from './theme'
+
+// maybe add CssBaseline if moving entirely away from tailwind (or if MUI components used will not style correctly)
+import { ThemeProvider, CssBaseline } from '@mui/material'
+
 import './App.css'
+import { Navbar } from './global'
 
 function App() {
+  const [theme, colorMode] = useMode()
   return (
-    <div className="app flex relative">
-      <h1 className="capitalize text-3xl text-black">app</h1>
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline here if needed **see comment at top** */}
+        <CssBaseline>
+          <div className="app">
+            <Navbar />
+          </div>
+        </CssBaseline>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   )
 }
 
