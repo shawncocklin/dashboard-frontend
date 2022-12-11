@@ -1,20 +1,80 @@
 import { ColorModeContext, useMode } from './theme'
-
-// maybe add CssBaseline if moving entirely away from tailwind (or if MUI components used will not style correctly)
+import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 
 import './App.css'
-import { Navbar } from './global'
+import { Navbar, SidebarComp } from './global'
+import {
+  Dashboard,
+  Teams,
+  Invoices,
+  Contacts,
+  Bar,
+  ProfileForm,
+  Line,
+  Pie,
+  Faq,
+  Geo,
+  Calendar,
+} from './pages'
 
 function App() {
   const [theme, colorMode] = useMode()
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline here if needed **see comment at top** */}
         <CssBaseline>
           <div className="app">
-            <Navbar />
+            <SidebarComp />
+            <main className="content">
+              <Navbar />
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Dashboard />}
+                />
+                <Route
+                  path="/teams"
+                  element={<Teams />}
+                />
+                <Route
+                  path="/contacts"
+                  element={<Contacts />}
+                />
+                <Route
+                  path="/invoices"
+                  element={<Invoices />}
+                />
+                <Route
+                  path="/form"
+                  element={<ProfileForm />}
+                />
+                <Route
+                  path="/calendar"
+                  element={<Calendar />}
+                />
+                <Route
+                  path="/faq"
+                  element={<Faq />}
+                />
+                <Route
+                  path="/bar"
+                  element={<Bar />}
+                />
+                <Route
+                  path="/pie"
+                  element={<Pie />}
+                />
+                <Route
+                  path="/line"
+                  element={<Line />}
+                />
+                <Route
+                  path="/geo"
+                  element={<Geo />}
+                />
+              </Routes>
+            </main>
           </div>
         </CssBaseline>
       </ThemeProvider>

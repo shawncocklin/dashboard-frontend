@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
 import { IconButton, useTheme, Box } from '@mui/material'
 import InputBase from '@mui/material/InputBase'
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
-import SearchIcon from '@mui/icons-material/Search'
+import {
+  PersonOutlinedIcon,
+  LightModeOutlinedIcon,
+  DarkModeOutlinedIcon,
+  NotificationsOutlinedIcon,
+  SettingsOutlinedIcon,
+  SearchIcon,
+} from '../data/icons'
 
 import { ColorModeContext, tokens } from '../theme'
 
