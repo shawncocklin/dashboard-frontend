@@ -3,6 +3,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar'
 import { IconButton, Typography, useTheme, Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { tokens } from '../theme'
+import avatar from '../assets/avatar2.jpg'
 
 import {
   PersonOutlinedIcon,
@@ -19,6 +20,8 @@ import {
   PeopleOutlinedIcon,
 } from '../data/icons'
 
+import Item from '../components/Item'
+
 export default function SidebarComp() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
@@ -30,130 +33,170 @@ export default function SidebarComp() {
       background: 'none',
       color: '#868dfb',
     },
+    fontSize: '14px',
   }
   const menuItemStyle = {
     ['.ps-menu-button:hover']: {
-      background: 'transparent',
+      background: 'none',
+      color: '#868dfb',
+    },
+    ['.ps-menu-button']: {
+      backgroundColor: 'transparent',
     },
   }
 
   return (
     <Box>
       <Sidebar
+        defaultCollapsed={isCollapsed}
         backgroundColor={`${colors.primary[400]}`}
-        rootStyles={{
-          ['.ps-sidebar-container']: {
-            padding: '5px 35px 5px 20px',
-          },
-        }}
+        className="text-sm"
       >
         <Menu>
           <MenuItem
-            routerLink={<Link to="/" />}
             rootStyles={menuItemStyle}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+            style={{
+              margin: '10px 0 20px 0',
+              color: colors.grey[100],
+            }}
           >
-            <IconButton sx={iconStyle}>
-              <HomeOutlinedIcon />
-              Dashboard
-            </IconButton>
+            {!isCollapsed && (
+              <div className="flex justify-between items-center uppercase text-xl cursor-pointer">
+                <p style={{ color: colors.grey[100] }}>Dashboard</p>
+                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                  <MenuOutlinedIcon />
+                </IconButton>
+              </div>
+            )}
           </MenuItem>
-          {/* Data pages */}
-          <p>Data</p>
-          <MenuItem
-            routerLink={<Link to="/teams" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <PeopleOutlinedIcon />
-              Manage Teams
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/contacts" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <ContactsOutlinedIcon />
-              Contacts Information
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/invoices" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <ReceiptOutlinedIcon />
-              Invoices Balances
-            </IconButton>
-          </MenuItem>
-          {/* Other pages */}
-          <p>Pages</p>
-          <MenuItem
-            routerLink={<Link to="/form" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <PersonOutlinedIcon />
-              Profile Form
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/calendar" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <CalendarTodayOutlinedIcon />
-              Calendar
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/faq" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <HelpOutlinedIcon />
-              FAQ Page
-            </IconButton>
-          </MenuItem>
+          {!isCollapsed && (
+            <div className="flex flex-col items-center mb-6 text-center">
+              <img
+                className="rounded-full w-24"
+                src={avatar}
+                alt=""
+              />
+              <p className="text-3xl font-bold mt-3">User Name</p>
+              <p
+                className="text-base"
+                style={{ color: colors.greenAccent[400] }}
+              >
+                Very Fancy Title
+              </p>
+            </div>
+          )}
 
-          {/* Chart pages */}
-          <p>Pages</p>
-          <MenuItem
-            routerLink={<Link to="/bar" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <BarChartOutlinedIcon />
-              Bar Chart
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/pie" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <PieChartOutlineOutlinedIcon />
-              Pie Chart
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/line" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <TimelineOutlinedIcon />
-              Line Chart
-            </IconButton>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/geo" />}
-            rootStyles={menuItemStyle}
-          >
-            <IconButton sx={iconStyle}>
-              <MapOutlinedIcon />
-              Geography Chart
-            </IconButton>
-          </MenuItem>
+          <div style={{ paddingLeft: isCollapsed ? undefined : '10%' }}>
+            <Item
+              title="Dashboard"
+              to="/"
+              icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+
+            {/* Data pages */}
+            <p style={{ paddingLeft: isCollapsed ? '20px' : undefined }}>
+              Data
+            </p>
+
+            <Item
+              title="Manage Teams"
+              to="/teams"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+
+            <Item
+              title="Contacts Information"
+              to="/contacts"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+
+            <Item
+              title="Invoices Balances"
+              to="/invoices"
+              icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+
+            {/* Other pages */}
+            <p style={{ paddingLeft: isCollapsed ? '20px' : undefined }}>
+              Pages
+            </p>
+
+            <Item
+              title="Profile Form"
+              to="/form"
+              icon={<PersonOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+            <Item
+              title="Calendar"
+              to="/calendar"
+              icon={<CalendarTodayOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+            <Item
+              title="FAQ Page"
+              to="/faq"
+              icon={<HelpOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+
+            {/* Chart pages */}
+            <p style={{ paddingLeft: isCollapsed ? '20px' : undefined }}>
+              Charts
+            </p>
+            <Item
+              title="Bar Chart"
+              to="/bar"
+              icon={<BarChartOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+            <Item
+              title="Pie Chart"
+              to="/pie"
+              icon={<PieChartOutlineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+            <Item
+              title="Line Chart"
+              to="/line"
+              icon={<TimelineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+            <Item
+              title="Geography Chart"
+              to="/geo"
+              icon={<MapOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+              style={menuItemStyle}
+            />
+          </div>
         </Menu>
       </Sidebar>
     </Box>

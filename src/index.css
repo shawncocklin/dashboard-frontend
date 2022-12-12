@@ -9,6 +9,11 @@ body,
   width: 100%;
 }
 
+.app {
+  display: flex;
+  position: relative;
+}
+
 body {
   margin: 0;
   padding: 0;
