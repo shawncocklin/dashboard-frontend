@@ -46,7 +46,7 @@ export default function SidebarComp() {
   }
 
   return (
-    <Box>
+    <div>
       <Sidebar
         defaultCollapsed={isCollapsed}
         backgroundColor={`${colors.primary[400]}`}
@@ -199,6 +199,6 @@ export default function SidebarComp() {
           </div>
         </Menu>
       </Sidebar>
-    </Box>
+    </div>
   )
 }

@@ -26,7 +26,6 @@ export default function Navbar() {
       <div className="flex items-center p-2 rounded-sm ">
         <InputBase
           sx={{
-            ml: 2,
             flex: 1,
             backgroundColor: colors.primary[400],
             padding: '8px',
