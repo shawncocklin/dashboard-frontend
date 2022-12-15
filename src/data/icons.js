@@ -16,3 +16,6 @@ export { default as PieChartOutlineOutlinedIcon } from '@mui/icons-material/PieC
 export { default as TimelineOutlinedIcon } from '@mui/icons-material/TimelineOutlined'
 export { default as MenuOutlinedIcon } from '@mui/icons-material/MenuOutlined'
 export { default as MapOutlinedIcon } from '@mui/icons-material/MapOutlined'
+export { default as AdminPanelSettingsOutlinedIcon } from '@mui/icons-material/AdminPanelSettingsOutlined'
+export { default as LockOpenOutlinedIcon } from '@mui/icons-material/LockOpenOutlined'
+export { default as SecurityOutlinedIcon } from '@mui/icons-material/SecurityOutlined'
