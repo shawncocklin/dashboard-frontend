@@ -65,7 +65,8 @@ export default function Teams() {
         subtitle="Managing the Team Members"
       />
       <Box
-        className="h-1/2 mt-8"
+        className="mt-8"
+        height="75vh"
         sx={{
           '& .MuiDataGrid-root': {
             border: 'none',

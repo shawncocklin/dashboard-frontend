@@ -50,7 +50,7 @@ export default function SidebarComp() {
       <Sidebar
         defaultCollapsed={isCollapsed}
         backgroundColor={`${colors.primary[400]}`}
-        className="text-sm"
+        className="text-sm h-full overflow-y-auto"
       >
         <Menu>
           <MenuItem
