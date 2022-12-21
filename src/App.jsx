@@ -15,7 +15,7 @@ import {
   Pie,
   Faq,
   Geo,
-  Calendar,
+  CalendarPage,
 } from './pages'
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
                 />
                 <Route
                   path="/calendar"
-                  element={<Calendar />}
+                  element={<CalendarPage />}
                 />
                 <Route
                   path="/faq"
