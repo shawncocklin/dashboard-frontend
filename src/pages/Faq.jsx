@@ -3,7 +3,7 @@ import Header from '../components/Header'
 
 export default function Faq() {
   return (
-    <div className="ml-6 mt-4">
+    <div className="m-6 h-full flex flex-col">
       <Header
         title="FAQ"
         subtitle="Frequently Asked Questions"

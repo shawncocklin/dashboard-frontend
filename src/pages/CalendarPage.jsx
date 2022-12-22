@@ -18,14 +18,17 @@ import {
 } from '@mui/material'
 
 import Header from '../components/Header'
+import EventModal from '../components/EventModal'
 
 export default function CalendarPage() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const [currentEvents, setCurrentEvents] = useState([])
+  const [toggleModal, setToggleModal] = useState(false)
 
   // TODO: replace prompt with a modal component
   function handleDateClick(selected) {
+    // setToggleModal(true)
     const title = prompt('Please enter a title for your event')
     const calendarApi = selected.view.calendar
     calendarApi.unselect()
@@ -57,7 +60,8 @@ export default function CalendarPage() {
         title="Calendar"
         subtitle="Full Interactive Calendar"
       />
-      <div className="flex justify-between mt-6">
+      {/* {toggleModal && <EventModal />} */}
+      <div className="flex justify-between mt-6 md:flex-row sm:flex-col gap-6">
         {/* EVENT LIST */}
         <div
           className="p-3 rounded"
@@ -81,13 +85,13 @@ export default function CalendarPage() {
                   <ListItemText
                     primary={event.title}
                     secondary={
-                      <p>
+                      <Typography>
                         {formatDate(event.start, {
                           year: 'numeric',
                           month: 'short',
                           day: 'numeric',
                         })}
-                      </p>
+                      </Typography>
                     }
                   />
                 </ListItem>
@@ -96,9 +100,8 @@ export default function CalendarPage() {
           </List>
         </div>
         {/* CALENDAR */}
-        <div
-          className="ml-4"
-          style={{ flex: '1 1 100%' }}
+        <Box
+          sx={{ flex: '1 1 100%', '& .fc-daygrid-day': { cursor: 'pointer' } }}
         >
           <FullCalendar
             height="75vh"
@@ -125,7 +128,7 @@ export default function CalendarPage() {
               { id: '1234', title: 'All day event', date: '2022-12-21' },
             ]}
           />
-        </div>
+        </Box>
       </div>
     </div>
   )
