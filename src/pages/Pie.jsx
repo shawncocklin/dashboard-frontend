@@ -4,7 +4,7 @@ import PieChart from '../components/PieChart'
 
 export default function Pie() {
   return (
-    <div className="ml-6 mt-4">
+    <div className="m-6 h-full flex flex-col">
       <Header
         title="Pie Chart"
         subtitle="Simple Pie Chart"
