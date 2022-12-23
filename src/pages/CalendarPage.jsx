@@ -24,7 +24,7 @@ export default function CalendarPage() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const [currentEvents, setCurrentEvents] = useState([])
-  const [toggleModal, setToggleModal] = useState(false)
+  // const [toggleModal, setToggleModal] = useState(false)
 
   // TODO: replace prompt with a modal component
   function handleDateClick(selected) {
