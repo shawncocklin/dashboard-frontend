@@ -20,3 +20,7 @@ export { default as AdminPanelSettingsOutlinedIcon } from '@mui/icons-material/A
 export { default as LockOpenOutlinedIcon } from '@mui/icons-material/LockOpenOutlined'
 export { default as SecurityOutlinedIcon } from '@mui/icons-material/SecurityOutlined'
 export { default as ExpandMoreIcon } from '@mui/icons-material/ExpandMore'
+export { default as EmailIcon } from '@mui/icons-material/Email'
+export { default as PointOfSaleIcon } from '@mui/icons-material/PointOfSale'
+export { default as PersonAddIcon } from '@mui/icons-material/PersonAdd'
+export { default as TrafficIcon } from '@mui/icons-material/Traffic'
