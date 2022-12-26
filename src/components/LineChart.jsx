@@ -4,7 +4,7 @@ import { tokens } from '../theme'
 import { useTheme } from '@mui/material'
 import { mockLineData as data } from '../data/mockData'
 
-export default function LineChart({ isDashboard = true }) {
+export default function LineChart({ isDashboard }) {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   return (

@@ -59,7 +59,7 @@ export default function Teams() {
   const rows = [...mockDataTeam]
 
   return (
-    <div className="m-6 h-full flex flex-col">
+    <div className="m-6 flex flex-col">
       <Header
         title="Team"
         subtitle="Managing the Team Members"

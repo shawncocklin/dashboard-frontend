@@ -10,7 +10,7 @@ export default function Line() {
         subtitle="Simple Line Chart"
       />
       <div style={{ height: '75vh' }}>
-        <LineChart />
+        <LineChart isDashboard={false} />
       </div>
     </div>
   )
