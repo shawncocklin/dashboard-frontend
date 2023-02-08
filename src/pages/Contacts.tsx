@@ -1,21 +1,19 @@
 import React from 'react'
 import Header from '../components/Header'
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid'
 import { tokens } from '../theme'
 import { useTheme, Box } from '@mui/material'
-import { mockDataTeam } from '../data/mockData'
-import {
-  AdminPanelSettingsOutlinedIcon,
-  LockOpenOutlinedIcon,
-  SecurityOutlinedIcon,
-} from '../data/icons'
 
-export default function Teams() {
+import { mockDataContacts } from '../data/mockData'
+
+export default function Contacts() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
 
-  const columns = [
+  const rows = [...mockDataContacts]
+  const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID' },
+    { field: 'registrarId', headerName: 'Registrar ID' },
     { field: 'name', headerName: 'Name', flex: 1, cellClassName: 'name-col' },
     {
       field: 'age',
@@ -26,43 +24,15 @@ export default function Teams() {
     },
     { field: 'phone', headerName: 'Phone', flex: 1 },
     { field: 'email', headerName: 'Email', flex: 1 },
-    {
-      field: 'access',
-      headerName: 'Access Level',
-      flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <div
-            className="w-3/5 mx-auto p-2 flex justify-center items-center"
-            style={{
-              backgroundColor:
-                access === 'admin'
-                  ? colors.greenAccent[400]
-                  : colors.greenAccent[700],
-              borderRadius: '4px',
-            }}
-          >
-            {access === 'admin' && <AdminPanelSettingsOutlinedIcon />}
-            {access === 'manager' && <SecurityOutlinedIcon />}
-            {access === 'user' && <LockOpenOutlinedIcon />}
-            <p
-              className="font-bold ml-1"
-              style={{ color: colors.grey[100] }}
-            >
-              {access}
-            </p>
-          </div>
-        )
-      },
-    },
+    { field: 'address', headerName: 'Address', flex: 1 },
+    { field: 'city', headerName: 'City', flex: 1 },
+    { field: 'zipCode', headerName: 'Zip Code', flex: 1 },
   ]
-  const rows = [...mockDataTeam]
-
   return (
-    <div className="m-6 flex flex-col">
+    <div className="m-6 h-full flex flex-col">
       <Header
-        title="Team"
-        subtitle="Managing the Team Members"
+        title="Contacts"
+        subtitle="List of Contacts for Future Reference"
       />
       <Box
         className="mt-8"
@@ -71,7 +41,9 @@ export default function Teams() {
           '& .MuiDataGrid-root': {
             border: 'none',
           },
-
+          '& .MuiButton-text': {
+            color: colors.grey[100],
+          },
           '& .MuiDataGrid-columnHeader': {
             backgroundColor: colors.blueAccent[700],
           },
@@ -96,7 +68,7 @@ export default function Teams() {
         }}
       >
         <DataGrid
-          checkboxSelection={true}
+          components={{ Toolbar: GridToolbar }}
           columns={columns}
           rows={rows}
         />

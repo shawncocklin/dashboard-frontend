@@ -28,13 +28,6 @@ export default function SidebarComp() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [selected, setSelected] = useState('Dashboard')
 
-  const iconStyle = {
-    '&:hover': {
-      background: 'none',
-      color: '#868dfb',
-    },
-    fontSize: '14px',
-  }
   const menuItemStyle = {
     ['.ps-menu-button:hover']: {
       background: 'none',

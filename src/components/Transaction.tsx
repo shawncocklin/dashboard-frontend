@@ -2,7 +2,13 @@ import React from 'react'
 import { tokens } from '../theme'
 import { useTheme } from '@mui/material'
 
-export default function Transaction({ id, user, date, amount }) {
+type Props = {
+  id: string
+  user: string
+  date: string
+  amount: string
+}
+export default function Transaction({ id, user, date, amount }: Props) {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   return (

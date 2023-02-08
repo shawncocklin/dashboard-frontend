@@ -20,7 +20,8 @@ import {
 import { ColorModeContext, tokens } from '../theme'
 
 export default function Navbar() {
-  const { isSignedIn, isLoading, user } = useUser()
+  // TODO: add back 'isLoading, user' when ready
+  const { isSignedIn } = useUser()
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const colorMode = useContext(ColorModeContext)
@@ -70,14 +71,18 @@ export default function Navbar() {
           </div>
         ) : (
           <div className="flex items-center gap-3">
-            <SignInButton className="py-1 px-2 rounded-md font-semibold" />
-            <SignUpButton
+            <div className="py-1 px-2 rounded-md font-semibold">
+              <SignInButton />
+            </div>
+            <div
               className="py-1 px-2 rounded-md font-semibold"
               style={{
                 backgroundColor: colors.greenAccent[400],
                 color: colors.primary[400],
               }}
-            />
+            >
+              <SignUpButton />
+            </div>
           </div>
         )}
       </div>

@@ -14,6 +14,15 @@ const initialValues = {
   address2: '',
 }
 
+type FormValues = {
+  firstName: string
+  lastName: string
+  email: string
+  contactNumber: string
+  address1: string
+  address2: string
+}
+
 const phoneNumRegex =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
 
@@ -32,7 +41,7 @@ const userSchema = yup.object().shape({
 export default function ProfileForm() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
-  function handleFormSubmit(values) {
+  function handleFormSubmit(values: FormValues) {
     console.log(values)
   }
 

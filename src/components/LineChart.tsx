@@ -4,7 +4,11 @@ import { tokens } from '../theme'
 import { useTheme } from '@mui/material'
 import { mockLineData as data } from '../data/mockData'
 
-export default function LineChart({ isDashboard }) {
+type Props ={
+  isDashboard: boolean
+}
+
+export default function LineChart({ isDashboard }: Props) {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   return (
@@ -37,7 +41,6 @@ export default function LineChart({ isDashboard }) {
           },
         },
       }}
-      color={isDashboard ? { datum: 'color' } : { scheme: 'nivo' }}
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: 'point' }}
       yScale={{

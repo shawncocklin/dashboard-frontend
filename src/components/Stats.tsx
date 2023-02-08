@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { tokens } from '../theme'
 import { useTheme, Box } from '@mui/material'
 
-export default function Stats({ icon, stat, statLabel, statChange }) {
+type Props = {
+  stat: string,
+  statLabel: string,
+  icon: ReactNode,
+  statChange: string,
+}
+
+
+export default function Stats({ icon, stat, statLabel, statChange }: Props) {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   return (

@@ -14,6 +14,13 @@ import * as yup from 'yup'
 
 import Header from './Header'
 
+type FormValues = {
+  title: string,
+  start: string,
+  end: string,
+  allDay: boolean,
+}
+
 const initialValues = {
   title: '',
   start: '',
@@ -30,7 +37,7 @@ const userSchema = yup.object().shape({
 export default function EventModal() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
-  function handleFormSubmit(values) {
+  function handleFormSubmit(values: FormValues) {
     console.log(values)
   }
 

@@ -8,7 +8,13 @@ import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import { ExpandMoreIcon } from '../data/icons'
 
-function FaqPanel({ question, answer, expanded }) {
+type Props = {
+  question: string,
+  answer: string,
+  expanded: boolean
+}
+
+function FaqPanel({ question, answer, expanded } : Props) {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   return (

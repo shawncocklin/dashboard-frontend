@@ -2,7 +2,12 @@ import React from 'react'
 import { tokens } from '../theme'
 import { useTheme } from '@mui/material'
 
-export default function Header({ title, subtitle }) {
+type Props = {
+  title: string,
+  subtitle: string
+}
+
+export default function Header({ title, subtitle } : Props) {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
 

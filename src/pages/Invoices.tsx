@@ -1,38 +1,39 @@
 import React from 'react'
 import Header from '../components/Header'
-import { DataGrid, GridToolbar } from '@mui/x-data-grid'
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { tokens } from '../theme'
 import { useTheme, Box } from '@mui/material'
 
-import { mockDataContacts } from '../data/mockData'
+import { mockDataInvoices } from '../data/mockData'
 
-export default function Contacts() {
+export default function Invoices() {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
 
-  const rows = [...mockDataContacts]
-  const columns = [
+  const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID' },
-    { field: 'registrarId', headerName: 'Registrar ID' },
     { field: 'name', headerName: 'Name', flex: 1, cellClassName: 'name-col' },
+    { field: 'phone', headerName: 'Phone', flex: 1 },
+    { field: 'email', headerName: 'Email', flex: 1 },
     {
-      field: 'age',
-      headerName: 'Age',
+      field: 'cost',
+      headerName: 'Cost',
       type: 'number',
       headerAlign: 'left',
       align: 'left',
+      cellClassName: 'name-col',
+      renderCell: ({ row: { cost } }) => {
+        return `$${cost}`
+      },
     },
-    { field: 'phone', headerName: 'Phone', flex: 1 },
-    { field: 'email', headerName: 'Email', flex: 1 },
-    { field: 'address', headerName: 'Address', flex: 1 },
-    { field: 'city', headerName: 'City', flex: 1 },
-    { field: 'zipCode', headerName: 'Zip Code', flex: 1 },
+    { field: 'date', headerName: 'Date', flex: 1 },
   ]
+  const rows = [...mockDataInvoices]
   return (
     <div className="m-6 h-full flex flex-col">
       <Header
-        title="Contacts"
-        subtitle="List of Contacts for Future Reference"
+        title="Invoices"
+        subtitle="List of Invoice Balances"
       />
       <Box
         className="mt-8"
@@ -41,9 +42,7 @@ export default function Contacts() {
           '& .MuiDataGrid-root': {
             border: 'none',
           },
-          '& .MuiButton-text': {
-            color: colors.grey[100],
-          },
+
           '& .MuiDataGrid-columnHeader': {
             backgroundColor: colors.blueAccent[700],
           },
@@ -68,7 +67,7 @@ export default function Contacts() {
         }}
       >
         <DataGrid
-          components={{ Toolbar: GridToolbar }}
+          checkboxSelection={true}
           columns={columns}
           rows={rows}
         />

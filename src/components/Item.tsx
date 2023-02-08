@@ -1,7 +1,15 @@
-import React from 'react'
-
+import { ReactNode } from 'react'
 import { MenuItem } from 'react-pro-sidebar'
 import { Link } from 'react-router-dom'
+
+type Props = {
+  title: string
+  to: string
+  icon: ReactNode
+  selected: string
+  setSelected: React.Dispatch<React.SetStateAction<string>>
+  style: {}
+}
 
 export default function Item({
   title,
@@ -10,7 +18,7 @@ export default function Item({
   selected,
   setSelected,
   style,
-}) {
+}: Props) {
   return (
     <MenuItem
       routerLink={<Link to={to} />}
