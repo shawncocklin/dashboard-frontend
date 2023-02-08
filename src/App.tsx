@@ -17,7 +17,6 @@ import {
   Pie,
   Faq,
   Geo,
-  CalendarPage,
 } from './pages'
 
 function App() {
