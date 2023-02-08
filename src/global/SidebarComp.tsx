@@ -136,14 +136,14 @@ export default function SidebarComp() {
               setSelected={setSelected}
               style={menuItemStyle}
             />
-            <Item
+            {/* <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
               style={menuItemStyle}
-            />
+            /> */}
             <Item
               title="FAQ Page"
               to="/faq"

@@ -54,10 +54,10 @@ function App() {
                     path="/form"
                     element={<ProfileForm />}
                   />
-                  <Route
+                  {/* <Route
                     path="/calendar"
                     element={<CalendarPage />}
-                  />
+                  /> */}
                   <Route
                     path="/faq"
                     element={<Faq />}

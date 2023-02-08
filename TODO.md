@@ -2,6 +2,8 @@
 
 ### Frontend TODOs
 
+Figure out how to fix typescript errors in the full calendar
+
 1. make tables more responsive to at least tablet screen sizes
 2. replace chart cards on dashboard page with ChartCard component
 3. fix StatCard circles to look like progress charts (possibly find a chart that does this?)
