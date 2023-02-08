@@ -4,7 +4,7 @@ import { tokens } from '../theme'
 import { useTheme } from '@mui/material'
 import { mockLineData as data } from '../data/mockData'
 
-type Props ={
+type Props = {
   isDashboard: boolean
 }
 
@@ -55,7 +55,6 @@ export default function LineChart({ isDashboard }: Props) {
       axisTop={null}
       axisRight={null}
       axisBottom={{
-        orient: 'bottom',
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
@@ -64,7 +63,6 @@ export default function LineChart({ isDashboard }: Props) {
         legendPosition: 'middle',
       }}
       axisLeft={{
-        orient: 'left',
         tickValues: 5,
         tickSize: 5,
         tickPadding: 5,
@@ -81,32 +79,32 @@ export default function LineChart({ isDashboard }: Props) {
       pointBorderColor={{ from: 'serieColor' }}
       pointLabelYOffset={-12}
       useMesh={true}
-      legends={[
-        {
-          anchor: 'bottom-right',
-          direction: 'column',
-          justify: false,
-          translateX: 100,
-          translateY: 0,
-          itemsSpacing: 0,
-          itemDirection: 'left-to-right',
-          itemWidth: 80,
-          itemHeight: 20,
-          itemOpacity: 0.75,
-          symbolSize: 12,
-          symbolShape: 'circle',
-          symbolBorderColor: 'rgba(0, 0, 0, .5)',
-          effects: [
-            {
-              on: 'hover',
-              style: {
-                itemBackground: 'rgba(0, 0, 0, .03)',
-                itemOpacity: 1,
-              },
-            },
-          ],
-        },
-      ]}
+      // legends={[
+      //   {
+      //     anchor: 'bottom-right',
+      //     direction: 'column',
+      //     justify: false,
+      //     translateX: 100,
+      //     translateY: 0,
+      //     itemsSpacing: 0,
+      //     itemDirection: 'left-to-right',
+      //     itemWidth: 80,
+      //     itemHeight: 20,
+      //     itemOpacity: 0.75,
+      //     symbolSize: 12,
+      //     symbolShape: 'circle',
+      //     symbolBorderColor: 'rgba(0, 0, 0, .5)',
+      //     effects: [
+      //       {
+      //         on: 'hover',
+      //         style: {
+      //           itemBackground: 'rgba(0, 0, 0, .03)',
+      //           itemOpacity: 1,
+      //         },
+      //       },
+      //     ],
+      //   },
+      // ]}
       tooltip={() => <></>}
     />
   )
